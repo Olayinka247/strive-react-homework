@@ -1,24 +1,21 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+import histories from "../data/history.json";
 
 const HomePage = () => {
   return (
     <Container>
       <Row>
-        <Col lg={3}>
-            {
-                historys.map((history) =>)
-            }
-          <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
+        {histories.map((history) => (
+          <Col md={4}>
+            <Card style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={history.img} />
+              <Card.Body>
+                <Card.Title>{history.title}</Card.Title>
+                <p>{history.price}</p>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
       </Row>
     </Container>
   );
